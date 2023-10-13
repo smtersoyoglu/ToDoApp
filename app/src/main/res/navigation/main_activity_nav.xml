@@ -11,10 +11,10 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_addTaskFragment"
+            android:id="@+id/homeFragmentToaddTaskFragment"
             app:destination="@id/addTaskFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_taskDetailFragment"
+            android:id="@+id/homeFragmentTotaskDetailFragment"
             app:destination="@id/taskDetailFragment" />
     </fragment>
     <fragment
@@ -26,5 +26,9 @@
         android:id="@+id/taskDetailFragment"
         android:name="com.sametersoyoglu.todoapp.ui.fragment.TaskDetailFragment"
         android:label="fragment_task_detail"
-        tools:layout="@layout/fragment_task_detail" />
+        tools:layout="@layout/fragment_task_detail" >
+        <argument
+            android:name="task"
+            app:argType="com.sametersoyoglu.todoapp.data.entity.Task" />
+    </fragment>
 </navigation>
