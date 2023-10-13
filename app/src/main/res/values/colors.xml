@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#FF5722</color>  <!-- Turuncu tonu -->
+    <color name="colorPrimaryDark">#E64A19</color>  <!-- Ana rengin koyu tonu -->
+    <color name="colorAccent">#009688</color>  <!-- Vurgu rengi -->
 </resources>
