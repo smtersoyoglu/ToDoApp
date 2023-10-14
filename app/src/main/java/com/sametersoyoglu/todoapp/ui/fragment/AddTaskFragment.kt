@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.sametersoyoglu.todoapp.R
 import com.sametersoyoglu.todoapp.databinding.FragmentAddTaskBinding
 
@@ -19,22 +20,18 @@ class AddTaskFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAddTaskBinding.inflate(inflater,container,false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_add_task,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolbarAddTask.title = "To-do Record"
-
-        binding.buttonSave.setOnClickListener {
-            val task_name = binding.editTextTask.text.toString()
-            save(task_name)
-        }
+        binding.addTaskFragment = this
+        binding.addTaskToolbarTitle = "To-do Record"
     }
 
-    fun save(task_name:String) {
+    fun buttonSave(task_name:String) {
         Log.e("To-do record","$task_name")
     }
 }

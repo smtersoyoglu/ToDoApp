@@ -6,4 +6,6 @@
     <color name="colorPrimary">#FF5722</color>  <!-- Turuncu tonu -->
     <color name="colorPrimaryDark">#E64A19</color>  <!-- Ana rengin koyu tonu -->
     <color name="colorAccent">#009688</color>  <!-- Vurgu rengi -->
+    <color name="PaperBack">#A6F5F5F5</color>
+    <color name="paperFold">#A6DDDDDD</color>
 </resources>

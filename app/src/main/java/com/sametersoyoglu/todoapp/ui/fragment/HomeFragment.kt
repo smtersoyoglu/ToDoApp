@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView.OnQueryTextListener
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sametersoyoglu.todoapp.R
@@ -25,16 +26,15 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolbarHome.title = "To Do List"
-
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.homeFragment = this
+        binding.homeToolbarTitle= "To Do List"
 
         val taskList = ArrayList<Task>()
         val t1 = Task(1,"Ödevlerini yap")
@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
         taskList.add(t3)
 
         val taskListAdapter = TaskListAdapter(requireContext(),taskList)
-        binding.recyclerView.adapter = taskListAdapter
+        binding.taskListAdapter = taskListAdapter
 
 
         binding.searchView.setOnQueryTextListener(object : OnQueryTextListener{
@@ -61,13 +61,11 @@ class HomeFragment : Fragment() {
 
         })
 
-
-        binding.fab.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.homeFragmentToaddTaskFragment)
-        }
-
     }
 
+    fun fabClick(it:View) {
+        Navigation.findNavController(it).navigate(R.id.homeFragmentToaddTaskFragment)
+    }
     fun search(searchWord: String) {
         Log.e("Task search", searchWord)
 
