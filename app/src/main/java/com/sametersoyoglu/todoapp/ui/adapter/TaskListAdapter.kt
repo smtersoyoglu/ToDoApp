@@ -4,9 +4,11 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.sametersoyoglu.todoapp.R
 import com.sametersoyoglu.todoapp.data.entity.Task
 import com.sametersoyoglu.todoapp.databinding.TaskRowBinding
 import com.sametersoyoglu.todoapp.ui.fragment.HomeFragmentDirections
@@ -17,7 +19,7 @@ class TaskListAdapter (var mContext:Context, var taskList: List<Task> ) : Recycl
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-       val binding = TaskRowBinding.inflate(LayoutInflater.from(mContext),parent,false)
+       val binding: TaskRowBinding = DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.task_row,parent,false)
         return TaskViewHolder(binding)
     }
 
@@ -26,7 +28,7 @@ class TaskListAdapter (var mContext:Context, var taskList: List<Task> ) : Recycl
         val task = taskList.get(position)
         val t = holder.binding
 
-        t.textViewTask.text = task.task_description
+        t.taskObject = task
 
         t.cardViewRow.setOnClickListener {
             val action = HomeFragmentDirections.homeFragmentTotaskDetailFragment(task = task)

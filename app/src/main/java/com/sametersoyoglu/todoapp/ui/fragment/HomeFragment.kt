@@ -8,19 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView.OnQueryTextListener
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sametersoyoglu.todoapp.R
 import com.sametersoyoglu.todoapp.data.entity.Task
 import com.sametersoyoglu.todoapp.databinding.FragmentHomeBinding
 import com.sametersoyoglu.todoapp.ui.adapter.TaskListAdapter
+import com.sametersoyoglu.todoapp.ui.viewmodel.HomeViewModel
 
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var viewModel: HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // ViewModeli bağlama - onCreate içersinde olur bu işlem
+        val tempViewModel : HomeViewModel by viewModels() // gecici bir viewmodele atayıp ordan bizim viewmodelimize bağlarız.
+        viewModel = tempViewModel
     }
 
     override fun onCreateView(

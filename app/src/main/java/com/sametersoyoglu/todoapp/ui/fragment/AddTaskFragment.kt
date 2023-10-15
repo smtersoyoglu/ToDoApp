@@ -7,14 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.sametersoyoglu.todoapp.R
 import com.sametersoyoglu.todoapp.databinding.FragmentAddTaskBinding
+import com.sametersoyoglu.todoapp.ui.viewmodel.AddTaskViewModel
 
 class AddTaskFragment : Fragment() {
 
     private lateinit var binding: FragmentAddTaskBinding
+    private lateinit var viewModel: AddTaskViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // ViewModeli bağlama - onCreate içersinde olur bu işlem
+        val tempViewModel : AddTaskViewModel by viewModels() // gecici bir viewmodele atayıp ordan bizim viewmodelimize bağlarız.
+        viewModel = tempViewModel
     }
 
     override fun onCreateView(
@@ -32,6 +38,6 @@ class AddTaskFragment : Fragment() {
     }
 
     fun buttonSave(task_name:String) {
-        Log.e("To-do record","$task_name")
+        viewModel.save(task_name)
     }
 }
