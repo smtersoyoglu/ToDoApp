@@ -16,8 +16,9 @@ import com.sametersoyoglu.todoapp.data.entity.Task
 import com.sametersoyoglu.todoapp.databinding.FragmentHomeBinding
 import com.sametersoyoglu.todoapp.ui.adapter.TaskListAdapter
 import com.sametersoyoglu.todoapp.ui.viewmodel.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -42,26 +43,20 @@ class HomeFragment : Fragment() {
         binding.homeFragment = this
         binding.homeToolbarTitle= "To Do List"
 
-        val taskList = ArrayList<Task>()
-        val t1 = Task(1,"Ödevlerini yap")
-        val t2 = Task(2,"Film izle")
-        val t3 = Task(3,"Spor yap")
-        taskList.add(t1)
-        taskList.add(t2)
-        taskList.add(t3)
-
-        val taskListAdapter = TaskListAdapter(requireContext(),taskList)
-        binding.taskListAdapter = taskListAdapter
-
+        // LiveData yapısı
+        viewModel.taskList.observe(viewLifecycleOwner) {
+            val taskListAdapter = TaskListAdapter(requireContext(),it,viewModel)
+            binding.taskListAdapter = taskListAdapter
+        }
 
         binding.searchView.setOnQueryTextListener(object : OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean { // arama iconuna bastığımız zaman sonuç getirir.
-                search(query)
+                viewModel.search(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String): Boolean { //harf girdikçe harf sildikce sonuç getirir.
-                search(newText)
+                viewModel.search(newText)
                 return true
             }
 
@@ -72,9 +67,9 @@ class HomeFragment : Fragment() {
     fun fabClick(it:View) {
         Navigation.findNavController(it).navigate(R.id.homeFragmentToaddTaskFragment)
     }
-    fun search(searchWord: String) {
-        Log.e("Task search", searchWord)
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadTasksList()
     }
-
 }

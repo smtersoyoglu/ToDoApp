@@ -12,8 +12,9 @@ import com.sametersoyoglu.todoapp.R
 import com.sametersoyoglu.todoapp.data.entity.Task
 import com.sametersoyoglu.todoapp.databinding.TaskRowBinding
 import com.sametersoyoglu.todoapp.ui.fragment.HomeFragmentDirections
+import com.sametersoyoglu.todoapp.ui.viewmodel.HomeViewModel
 
-class TaskListAdapter (var mContext:Context, var taskList: List<Task> ) : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
+class TaskListAdapter (var mContext:Context, var taskList: List<Task>, var viewModel: HomeViewModel) : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
     inner class TaskViewHolder(var binding: TaskRowBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -38,7 +39,7 @@ class TaskListAdapter (var mContext:Context, var taskList: List<Task> ) : Recycl
         t.imageViewDelete.setOnClickListener {
             Snackbar.make(it,"${task.task_description} Delete this task?", Snackbar.LENGTH_SHORT)
                 .setAction("YES"){
-                    delete(task.task_id)
+                    viewModel.delete(task.task_id)
                 }.show()
         }
     }
@@ -47,7 +48,4 @@ class TaskListAdapter (var mContext:Context, var taskList: List<Task> ) : Recycl
         return taskList.size
     }
 
-    fun delete(task_id:Int) {
-        Log.e("Task Delete",task_id.toString())
-    }
 }
