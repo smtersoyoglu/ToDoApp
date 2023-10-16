@@ -24,7 +24,7 @@ class TaskDetailViewModel @Inject constructor(var taskRepository : TaskRepositor
         setTaskDate(taskDate)
 
         CoroutineScope(Dispatchers.Main).launch {
-            taskRepository.save(task_title,task_description)
+            taskRepository.update(task_id,task_title,task_description)
         }
     }
 
