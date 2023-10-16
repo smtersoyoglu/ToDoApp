@@ -5,6 +5,8 @@ import com.sametersoyoglu.todoapp.data.entity.Task
 import com.sametersoyoglu.todoapp.room.TaskDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class TaskDataSource(var taskDao: TaskDao){
 
@@ -18,13 +20,21 @@ class TaskDataSource(var taskDao: TaskDao){
             return@withContext taskDao.search(searchWord)
         }
 
-    suspend fun save(task_title:String,task_description:String,task_date:String) {
-        val newTask = Task(0,task_title,task_description,task_date)
+    suspend fun save(task_title:String,task_description:String) {
+        val time = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("dd-MM-yyyy | HH:mm")
+        val taskDate = formatter.format(time)
+
+        val newTask = Task(0,task_title,task_description,taskDate)
         taskDao.save(newTask)
     }
 
-    suspend fun update(task_id:Int,task_title:String,task_description:String,task_date:String) {
-        val updateTask = Task(task_id,task_title,task_description,task_date)
+    suspend fun update(task_id:Int,task_title:String,task_description:String) {
+        val time = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("dd-MM-yyyy | HH:mm")
+        val taskDate = formatter.format(time)
+
+        val updateTask = Task(task_id,task_title,task_description,taskDate)
         taskDao.update(updateTask)
     }
 

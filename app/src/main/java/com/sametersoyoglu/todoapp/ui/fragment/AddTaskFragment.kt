@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.sametersoyoglu.todoapp.R
+import com.sametersoyoglu.todoapp.data.entity.Task
 import com.sametersoyoglu.todoapp.databinding.FragmentAddTaskBinding
 import com.sametersoyoglu.todoapp.ui.viewmodel.AddTaskViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,11 +42,7 @@ class AddTaskFragment : Fragment() {
         binding.addTaskToolbarTitle = "To-do Record"
     }
 
-    fun buttonSave(task_title:String,task_description:String,task_date:String) {
-        val time = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("dd-MM-yyyy | HH:mm ")
-        val taskCreatedTime = formatter.format(time)
-
-        viewModel.save(task_title,task_description,task_date)
+    fun buttonSave(task_title:String,task_description:String) {
+        viewModel.save(task_title,task_description)
     }
 }

@@ -31,6 +31,8 @@ class TaskListAdapter (var mContext:Context, var taskList: List<Task>, var viewM
 
         t.taskObject = task
 
+        //t.taskObject.task_date = task.task_date
+        t.textViewDate.text = task.task_date
 
         t.cardViewRow.setOnClickListener {
             val action = HomeFragmentDirections.homeFragmentTotaskDetailFragment(task = task)
