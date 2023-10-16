@@ -2,40 +2,34 @@ package com.sametersoyoglu.todoapp.data.datasource
 
 import android.util.Log
 import com.sametersoyoglu.todoapp.data.entity.Task
+import com.sametersoyoglu.todoapp.room.TaskDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class TaskDataSource {
+class TaskDataSource(var taskDao: TaskDao){
 
     suspend fun loadTasksList() : List<Task> =
         withContext(Dispatchers.IO){
-            val taskList = ArrayList<Task>()
-            val t1 = Task(1,"Ödevlerini yap")
-            val t2 = Task(2,"Film izle")
-            val t3 = Task(3,"Spor yap")
-            taskList.add(t1)
-            taskList.add(t2)
-            taskList.add(t3)
-            return@withContext taskList
+            return@withContext taskDao.loadTasksList()
         }
 
     suspend fun search(searchWord: String) : List<Task> =
         withContext(Dispatchers.IO){
-            val taskList = ArrayList<Task>()
-            val t1 = Task(1,"Ödevlerini yap")
-            taskList.add(t1)
-            return@withContext taskList
+            return@withContext taskDao.search(searchWord)
         }
 
-    suspend fun save(task_name:String) {
-        Log.e("To-do record","$task_name")
+    suspend fun save(task_title:String,task_description:String,task_date:String) {
+        val newTask = Task(0,task_title,task_description,task_date)
+        taskDao.save(newTask)
     }
 
-    suspend fun update(task_id:Int,task_name:String) {
-        Log.e("To-do Detail","$task_id - $task_name")
+    suspend fun update(task_id:Int,task_title:String,task_description:String,task_date:String) {
+        val updateTask = Task(task_id,task_title,task_description,task_date)
+        taskDao.update(updateTask)
     }
 
     suspend fun delete(task_id:Int) {
-        Log.e("Task Delete",task_id.toString())
+        val deleteTask = Task(task_id,"","","")
+        taskDao.delete(deleteTask)
     }
 }

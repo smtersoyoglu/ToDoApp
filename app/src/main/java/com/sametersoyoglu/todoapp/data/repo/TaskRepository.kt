@@ -5,9 +5,9 @@ import com.sametersoyoglu.todoapp.data.entity.Task
 
 class TaskRepository (var taskDataSource : TaskDataSource){
 
-    suspend fun save(task_name:String) = taskDataSource.save(task_name)
+    suspend fun save(task_title:String,task_description:String,task_date:String) = taskDataSource.save(task_title,task_description,task_date)
 
-    suspend fun update(task_id:Int,task_name:String) = taskDataSource.update(task_id,task_name)
+    suspend fun update(task_id:Int,task_title:String,task_description:String,task_date:String) = taskDataSource.update(task_id,task_title,task_description,task_date)
 
     suspend fun delete(task_id:Int) = taskDataSource.delete(task_id)
 

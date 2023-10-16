@@ -44,9 +44,7 @@ class TaskDetailFragment : Fragment() {
         binding.taskObject = receivedTask
 
     }
-
-    fun buttonUpdate(task_id:Int,task_name:String) {
-        viewModel.update(task_id,task_name)
+    fun buttonUpdate(task_id:Int,task_title:String,task_description:String,task_date:String) {
+        viewModel.update(task_id,task_title,task_description,task_date)
     }
-
 }

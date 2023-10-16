@@ -31,6 +31,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:hint="title"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarAddTask" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="0dp"
@@ -60,7 +80,7 @@
             android:backgroundTint="@color/colorAccent"
             android:padding="12dp"
             android:text="SAVE"
-            android:onClick="@{() -> addTaskFragment.buttonSave(editTextTask.getText().toString())}"
+            android:onClick="@{() -> addTaskFragment.buttonSave(editTextTitle.getText().toString(),editTextTask.getText().toString())}"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

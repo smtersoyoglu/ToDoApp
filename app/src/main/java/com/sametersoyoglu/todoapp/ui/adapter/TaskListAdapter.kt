@@ -31,6 +31,7 @@ class TaskListAdapter (var mContext:Context, var taskList: List<Task>, var viewM
 
         t.taskObject = task
 
+
         t.cardViewRow.setOnClickListener {
             val action = HomeFragmentDirections.homeFragmentTotaskDetailFragment(task = task)
             Navigation.findNavController(it).navigate(action)
