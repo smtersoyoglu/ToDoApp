@@ -22,6 +22,7 @@ class HomeViewModel @Inject constructor(var taskRepository : TaskRepository) : V
     fun delete(task_id:Int) {
         CoroutineScope(Dispatchers.Main).launch {
             taskRepository.delete(task_id)
+            loadTasksList()
         }
     }
 
