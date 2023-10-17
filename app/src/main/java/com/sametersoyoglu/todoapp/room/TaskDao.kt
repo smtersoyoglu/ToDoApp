@@ -22,6 +22,6 @@ interface TaskDao {
     @Delete
     suspend fun delete(task: Task)
 
-    @Query("SELECT * FROM task WHERE task_title like '½' || :searchWord || '½'")
-    suspend fun search(searchWord:String) : List<Task>
+    @Query("SELECT * FROM task WHERE task_title LIKE '%' || :searchWord || '%'")
+    suspend fun search(searchWord: String): List<Task>
 }
