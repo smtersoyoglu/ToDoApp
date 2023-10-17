@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="backgroundColor">#F5F5F5</color>
+    <color name="backgroundColor">#23262F</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#FF5722</color>  <!-- Turuncu tonu -->
@@ -8,4 +8,5 @@
     <color name="colorAccent">#009688</color>  <!-- Vurgu rengi -->
     <color name="PaperBack">#A6F5F5F5</color>
     <color name="paperFold">#A6DDDDDD</color>
+    <color name="arkaPlanRenk">#E9E9EB</color>
 </resources>

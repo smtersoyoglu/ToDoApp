@@ -61,7 +61,6 @@ class HomeFragment : Fragment() {
             }
 
         })
-
     }
 
     fun fabClick(it:View) {
