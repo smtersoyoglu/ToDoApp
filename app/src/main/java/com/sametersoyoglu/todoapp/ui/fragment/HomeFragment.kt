@@ -43,24 +43,24 @@ class HomeFragment : Fragment() {
         binding.homeFragment = this
         binding.homeToolbarTitle= "To Do List"
 
+
+        binding.searchView.setOnQueryTextListener(object : OnQueryTextListener{
+            override fun onQueryTextChange(newText: String): Boolean { //harf girdikçe harf sildikce sonuç getirir.
+                viewModel.search(newText)
+                return true
+            }
+            override fun onQueryTextSubmit(query: String): Boolean { // arama iconuna bastığımız zaman sonuç getirir.
+                viewModel.search(query)
+                return true
+            }
+        })
+
         // LiveData yapısı
         viewModel.taskList.observe(viewLifecycleOwner) {
             val taskListAdapter = TaskListAdapter(requireContext(),it,viewModel)
             binding.taskListAdapter = taskListAdapter
         }
 
-        binding.searchView.setOnQueryTextListener(object : OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String): Boolean { // arama iconuna bastığımız zaman sonuç getirir.
-                viewModel.search(query)
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean { //harf girdikçe harf sildikce sonuç getirir.
-                viewModel.search(newText)
-                return true
-            }
-
-        })
     }
 
     fun fabClick(it:View) {

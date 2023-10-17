@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.sametersoyoglu.todoapp.R
 import com.sametersoyoglu.todoapp.databinding.FragmentTaskDetailBinding
@@ -46,5 +47,7 @@ class TaskDetailFragment : Fragment() {
     }
     fun buttonUpdate(task_id:Int,task_title:String,task_description:String) {
         viewModel.update(task_id,task_title,task_description)
+        val action = TaskDetailFragmentDirections.taskDetailFragmentTohomeFragment()
+        findNavController().navigate(action)
     }
 }

@@ -21,7 +21,11 @@
         android:id="@+id/addTaskFragment"
         android:name="com.sametersoyoglu.todoapp.ui.fragment.AddTaskFragment"
         android:label="fragment_add_task"
-        tools:layout="@layout/fragment_add_task" />
+        tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/addTaskFragmentTohomeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/taskDetailFragment"
         android:name="com.sametersoyoglu.todoapp.ui.fragment.TaskDetailFragment"
@@ -30,5 +34,8 @@
         <argument
             android:name="task"
             app:argType="com.sametersoyoglu.todoapp.data.entity.Task" />
+        <action
+            android:id="@+id/taskDetailFragmentTohomeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.sametersoyoglu.todoapp.R
 import com.sametersoyoglu.todoapp.data.entity.Task
 import com.sametersoyoglu.todoapp.databinding.FragmentAddTaskBinding
 import com.sametersoyoglu.todoapp.ui.viewmodel.AddTaskViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.Calendar
+
 
 @AndroidEntryPoint
 class AddTaskFragment : Fragment() {
@@ -44,5 +44,7 @@ class AddTaskFragment : Fragment() {
 
     fun buttonSave(task_title:String,task_description:String) {
         viewModel.save(task_title,task_description)
+        val action = AddTaskFragmentDirections.addTaskFragmentTohomeFragment()
+        findNavController().navigate(action)
     }
 }
