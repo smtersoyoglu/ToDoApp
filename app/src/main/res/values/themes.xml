@@ -12,4 +12,5 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item> <!-- Yuvarlaklık oranı, 50% tam bir daire yapar -->
     </style>
+    <string name="back">Geri</string>
 </resources>

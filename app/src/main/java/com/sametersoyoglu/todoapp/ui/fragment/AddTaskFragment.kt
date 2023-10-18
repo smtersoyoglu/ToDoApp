@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -42,6 +43,19 @@ class AddTaskFragment : Fragment() {
         binding.addTaskFragment = this
         binding.addTaskToolbarTitle = "To-do Record"
     }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                // Geri butonuna tıklandığında yapılacak işlemler
+                activity?.onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 
     fun buttonSave(task_title:String,task_description:String) {
         if (task_title.isBlank() || task_description.isBlank()) {
