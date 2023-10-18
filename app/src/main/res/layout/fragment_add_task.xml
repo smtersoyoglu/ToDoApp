@@ -17,7 +17,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragment.AddTaskFragment">
+        tools:context=".ui.fragment.AddTaskFragment"
+        android:background="@color/backgroundColor">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarAddTask"
@@ -40,6 +41,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
             android:hint="title"
+            android:minHeight="48dp"
             android:paddingLeft="8dp"
             android:paddingTop="4dp"
             android:paddingRight="8dp"
@@ -54,10 +56,12 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="128dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSave"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarAddTask">
@@ -65,7 +69,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextTask"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="top"
                 android:hint="Things to do"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -76,11 +81,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="128dp"
-            android:backgroundTint="@color/colorAccent"
+            android:layout_marginBottom="85dp"
+            android:backgroundTint="@color/fabColor"
+            android:onClick="@{() -> addTaskFragment.buttonSave(editTextTitle.getText().toString(),editTextTask.getText().toString())}"
             android:padding="12dp"
             android:text="SAVE"
-            android:onClick="@{() -> addTaskFragment.buttonSave(editTextTitle.getText().toString(),editTextTask.getText().toString())}"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

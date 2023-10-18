@@ -10,7 +10,7 @@ import com.sametersoyoglu.todoapp.data.entity.Task
 @Dao
 interface TaskDao {
 
-    @Query("SELECT * FROM task")
+    @Query("SELECT * FROM task ORDER BY task_id DESC")
     suspend fun loadTasksList() : List<Task>
 
     @Insert

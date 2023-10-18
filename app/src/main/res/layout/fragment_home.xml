@@ -24,66 +24,74 @@
         android:background="@color/backgroundColor"
         tools:context=".ui.fragment.HomeFragment">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarHome"
-            app:title="@{homeToolbarTitle}"
-            android:layout_width="0dp"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/apbarlayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
+            android:background="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarHome"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@{homeToolbarTitle}" />
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="#F5F5F5"
+                android:elevation="2dp"
+                android:queryHint="Search"
+                android:layout_marginBottom="8dp"
+                android:searchHintIcon="@drawable/search"
+                android:searchIcon="@drawable/search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbarHome" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/fabColor"
             android:clickable="true"
+            android:elevation="8dp"
             android:onClick="@{() -> homeFragment.fabClick(fab)}"
-            android:elevation="10dp"
-            android:src="@drawable/tasklist"
+            app:shapeAppearanceOverlay="@style/RoundedFAB"
             android:soundEffectsEnabled="false"
-            app:tint="@android:color/white"
+            android:src="@drawable/plus"
+            app:circularflow_radiusInDP="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:maxImageSize="36dp"
-            app:pressedTranslationZ="12dp" />
+            app:tint="@color/white" />
 
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/arkaPlanRenk"
-            android:elevation="2dp"
-            android:queryHint="Search"
-            android:searchHintIcon="@drawable/analysis"
-            android:searchIcon="@drawable/clipboard"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarHome" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:adapter="@{taskListAdapter}"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+            android:adapter="@{taskListAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView" />
+            app:layout_constraintTop_toBottomOf="@+id/apbarlayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

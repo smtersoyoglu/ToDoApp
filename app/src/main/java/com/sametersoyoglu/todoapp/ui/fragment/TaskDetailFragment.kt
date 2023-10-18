@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -46,8 +47,12 @@ class TaskDetailFragment : Fragment() {
 
     }
     fun buttonUpdate(task_id:Int,task_title:String,task_description:String) {
-        viewModel.update(task_id,task_title,task_description)
-        val action = TaskDetailFragmentDirections.taskDetailFragmentTohomeFragment()
-        findNavController().navigate(action)
+        if (task_title.isBlank() || task_description.isBlank()) {
+            Toast.makeText(requireContext(),"Task title and description cannot be empty!", Toast.LENGTH_SHORT).show()
+        }else{
+            viewModel.update(task_id,task_title,task_description)
+            val action = TaskDetailFragmentDirections.taskDetailFragmentTohomeFragment()
+            findNavController().navigate(action)
+        }
     }
 }
