@@ -8,6 +8,8 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -23,11 +25,13 @@ class AddTaskFragment : Fragment() {
 
     private lateinit var binding: FragmentAddTaskBinding
     private lateinit var viewModel: AddTaskViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // ViewModeli bağlama - onCreate içersinde olur bu işlem
         val tempViewModel : AddTaskViewModel by viewModels() // gecici bir viewmodele atayıp ordan bizim viewmodelimize bağlarız.
         viewModel = tempViewModel
+
     }
 
     override fun onCreateView(
@@ -42,19 +46,19 @@ class AddTaskFragment : Fragment() {
 
         binding.addTaskFragment = this
         binding.addTaskToolbarTitle = "To-do Record"
-    }
 
+        // Enable the back button (home button) in the Toolbar
+        val toolbar = binding.toolbarAddTask
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                // Geri butonuna tıklandığında yapılacak işlemler
-                activity?.onBackPressed()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        // Handle the back button press
+        toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
         }
     }
+
+
 
 
     fun buttonSave(task_title:String,task_description:String) {

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -44,6 +45,16 @@ class TaskDetailFragment : Fragment() {
         val bundle: TaskDetailFragmentArgs by navArgs()
         val receivedTask = bundle.task
         binding.taskObject = receivedTask
+
+        // Enable the back button (home button) in the Toolbar
+        val toolbar = binding.toolbarDetail
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Handle the back button press
+        toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
 
     }
     fun buttonUpdate(task_id:Int,task_title:String,task_description:String) {
