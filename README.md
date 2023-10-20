@@ -1,5 +1,7 @@
 # ToDoApp
 "Bu uygulama, kullanıcıların yapacakları işleri uygulamaya kaydedip, ne zaman kaydettiklerini tarih ve saat olarak görebilecekleri, kayıtlarını güncelleme veya silme işlemi yapabilecekleri bir To-Do uygulamasıdır."
+
+#Bu projede kullanılan teknolojiler:
 - MVVM
 - Dagger Hilt
 - Live Data
