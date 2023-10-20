@@ -42,7 +42,6 @@ android {
         dataBinding = true
     }
 }
-
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -70,4 +69,7 @@ dependencies {
     //Coroutine
     implementation ("androidx.room:room-ktx:2.5.1")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+
+    // splash screen
+    implementation ("com.airbnb.android:lottie:3.4.0")
 }
