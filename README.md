@@ -1,7 +1,5 @@
 # ToDoApp
-Bu uygulamada kullanıcıların yapıcakları işleri uygulamaya kayıt edip ne zaman kayıt ettiklerini tarih ve saat olarak görebilecekleri, kayıtlarını günceleme işlemi veya silme işlemi yapabileceği bir To do app uygulaması.
-
-#Kullanılan Teknolojiler
+"Bu uygulama, kullanıcıların yapacakları işleri uygulamaya kaydedip, ne zaman kaydettiklerini tarih ve saat olarak görebilecekleri, kayıtlarını güncelleme veya silme işlemi yapabilecekleri bir To-Do uygulamasıdır."
 - MVVM
 - Dagger Hilt
 - Live Data
