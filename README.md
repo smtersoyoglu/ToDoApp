@@ -20,11 +20,7 @@ Bu uygulamada kullanıcıların yapıcakları işleri uygulamaya kayıt edip ne 
 
 #Screenshots:
 
-<table>
-  <tr>
-    <img src="![Resim1](https://github.com/smtersoyoglu/ToDoApp/assets/77547002/90cb85b6-d4a5-471e-955b-238a6c2fff2b)" width="200" alt="Resim 1">
-    <img src="![Resim2](https://github.com/smtersoyoglu/ToDoApp/assets/77547002/a0c25403-948c-456e-a285-980ae26e2691)" width="200" alt="Resim 2">
-    <img src="![Resim3](https://github.com/smtersoyoglu/ToDoApp/assets/77547002/e6212ce2-d363-4f0b-ad80-f2294fb902ca)" width="200" alt="Resim 3">
-  </tr>
-</table>
+<img src="https://github.com/smtersoyoglu/ToDoApp/assets/77547002/690da0ae-980f-424b-a9cc-183406203a27" width="300" alt="Resim 1"> <img src="https://github.com/smtersoyoglu/ToDoApp/assets/77547002/01d87da0-4c83-4a30-aa20-2b70d7d35861" width="300" alt="Resim 2"> <img src="https://github.com/smtersoyoglu/ToDoApp/assets/77547002/00c4b8e8-70c3-4904-aa68-bf1afc388cf9" width="300" alt="Resim 3">
+
+<img src="https://github.com/smtersoyoglu/ToDoApp/assets/77547002/e3fff624-0c93-4988-8bea-0a67ac538f54" width="300" alt="Resim 4"> <img src="https://github.com/smtersoyoglu/ToDoApp/assets/77547002/bfeece89-aea8-4383-8f53-914da1e94603" width="300" alt="Resim 5"> <img src="https://github.com/smtersoyoglu/ToDoApp/assets/77547002/662aebc9-4088-4195-adb8-9a4470045694" width="300" alt="Resim 6"> <img src="https://github.com/smtersoyoglu/ToDoApp/assets/77547002/e6f2b0d7-a546-456a-b293-a25dd21fbf41" width="300" alt="Resim 7">
 
