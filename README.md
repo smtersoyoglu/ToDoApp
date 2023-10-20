@@ -23,13 +23,8 @@ Bu uygulamada kullanıcıların yapıcakları işleri uygulamaya kayıt edip ne 
 <table>
   <tr>
     <td align="center"><img src="![Resim1](https://github.com/smtersoyoglu/ToDoApp/assets/77547002/90cb85b6-d4a5-471e-955b-238a6c2fff2b)" width="200" alt="Resim 1"></td>
-    <td align="center"><img src="image2.jpg" width="200" alt="Resim 2"></td>
-    <td align="center"><img src="image3.jpg" width="200" alt="Resim 3"></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="image4.jpg" width="200" alt="Resim 4"></td>
-    <td align="center"><img src="image5.jpg" width="200" alt="Resim 5"></td>
-    <td align="center"><img src="image6.jpg" width="200" alt="Resim 6"></td>
+    <td align="center"><img src="![Resim2](https://github.com/smtersoyoglu/ToDoApp/assets/77547002/a0c25403-948c-456e-a285-980ae26e2691)" width="200" alt="Resim 2"></td>
+    <td align="center"><img src="![Resim3](https://github.com/smtersoyoglu/ToDoApp/assets/77547002/e6212ce2-d363-4f0b-ad80-f2294fb902ca)" width="200" alt="Resim 3"></td>
   </tr>
 </table>
 
