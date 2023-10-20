@@ -15,7 +15,7 @@
 - Yapılacakları Güncelle
 - Silme
 - Arama
-- Tüm yapılacakları alma (DESC en yüksek id'ye sahip olan görevi en önce getirirme)
+- Tüm yapılacakları alma (DESC-en yüksek id'ye sahip olan görevi en üstte gösterme)
 
 
 # Screenshots:
