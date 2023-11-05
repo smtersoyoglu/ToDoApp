@@ -5,7 +5,7 @@
 - MVVM
 - Dagger Hilt
 - Live Data
-- Room
+- Room Database
 - Coroutines
 - Data Binding
 - Navigation
